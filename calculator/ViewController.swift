@@ -46,6 +46,21 @@ class ViewController: UIViewController {
     
     private var brain = CalculatorBrain()
     
+    
+    @IBAction func backSpace(_ sender: UIButton) {
+        var newNumber = display.text!
+        newNumber = newNumber.substring(to: newNumber.index(before: newNumber.endIndex))
+        if !brain.sequence.contains("=") {
+            if (newNumber != ""){
+                display.text = newNumber
+                userIsInTheMiddleOfTyping = true
+            } else {
+                display.text = "0"
+                userIsInTheMiddleOfTyping = false
+            }
+        }
+    }
+    
     @IBAction func performOperation(_ sender: UIButton) {
         
         if userIsInTheMiddleOfTyping {

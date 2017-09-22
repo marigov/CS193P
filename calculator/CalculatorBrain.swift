@@ -81,12 +81,11 @@ struct CalculatorBrain {
                     pendingUnaryOperation = false
                     pendingConstant = false
                 }
-                
             case .nullaryOperator:
                 pendingUnaryOperation = false
                 pendingConstant = false
                 description = ""
-                accumulator = 0.0
+                accumulator = 0
                 pendingBinaryOperation = nil
                 
             case .equals:
